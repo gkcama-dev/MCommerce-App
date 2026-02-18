@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/side_nav_group_main"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/side_nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/side_nav_home_title"
+            android:checkable="true"/>
+        <item
+            android:id="@+id/side_nav_profile"
+            android:icon="@drawable/person"
+            android:title="@string/side_nav_profile_title"
+            android:visible="true"
+            android:checkable="true"/>
+        <item
+            android:id="@+id/side_nav_order"
+            android:icon="@drawable/order"
+            android:title="@string/side_nav_order_title"
+            android:visible="true"
+            android:checkable="true"/>
+        <item
+            android:id="@+id/side_nav_whishlist"
+            android:icon="@drawable/favorite"
+            android:title="@string/side_nav_wishlist_title"
+            android:visible="true"
+            android:checkable="true"/>
+        <item
+            android:id="@+id/side_nav_cart"
+            android:icon="@drawable/cart"
+            android:title="@string/side_nav_cart_title"
+            android:visible="true"
+            android:checkable="true"/>
+        <item
+            android:id="@+id/side_nav_message"
+            android:icon="@drawable/chat"
+            android:title="@string/side_nav_message_title"
+            android:visible="true"
+            android:checkable="true"/>
+        <item
+            android:id="@+id/side_nav_settings"
+            android:icon="@drawable/settings"
+            android:title="@string/side_nav_settings_title"
+            android:visible="true"
+            android:checkable="true"/>
+    </group>
+
+    <group android:id="@+id/side_nav_group_auth">
+        <item
+            android:id="@+id/side_nav_login"
+            android:icon="@drawable/login"
+            android:title="@string/side_nav_login_title" />
+        <item
+            android:id="@+id/side_nav_logout"
+            android:icon="@drawable/logout"
+            android:title="@string/side_nav_logout_title"
+            android:visible="false"/>
+    </group>
+
+
+</menu>
