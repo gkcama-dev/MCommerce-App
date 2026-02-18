@@ -1,6 +1,8 @@
 package lk.jiat.mshop.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -93,7 +95,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         int itemId = item.getItemId();
 
-        navigationView.setCheckedItem(-1);
+        Menu navMenu = navigationView.getMenu();
+        Menu bottomNavMenu = bottomNavigationView.getMenu();
+
+        for (int i = 0; i < navMenu.size(); i++) {
+            navMenu.getItem(i).setChecked(false);
+        }
+
+        for (int i = 0; i < bottomNavMenu.size(); i++) {
+            bottomNavMenu.getItem(i).setChecked(false);
+        }
 
         if (itemId == R.id.side_nav_home || itemId == R.id.bottom_nav_home) {
             loadFragment(new HomeFragment());
@@ -123,7 +134,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             loadFragment(new CategoryFragment());
             bottomNavigationView.getMenu().findItem(R.id.bottom_nav_category).setChecked(true);
         } else if (itemId == R.id.side_nav_login) {
-
+            Intent intent = new Intent(MainActivity.this,SignInActivity.class);
+            startActivity(intent);
+            finish();
         } else if (itemId == R.id.side_nav_logout) {
 
         }

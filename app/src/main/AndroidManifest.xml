@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MShop">
         <activity
+            android:name=".activity.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SignInActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -22,10 +28,10 @@
         </activity>
         <activity
             android:name=".activity.MainActivity2"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

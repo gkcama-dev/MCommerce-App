@@ -20,4 +20,12 @@
     <string name="drawer_close">Close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_title">Login to MShop</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="text_sign_in">Sign In</string>
+    <string name="text_sign_up">Sign Up</string>
+    <string name="text_create_account">or, create a new account ?</string>
+    <string name="signup_title">Join Mshop</string>
+    <string name="text_already_have_an_account">Already have an account ?</string>
+    <string name="text_password_message">password must contain at least 8 characters</string>
 </resources>
