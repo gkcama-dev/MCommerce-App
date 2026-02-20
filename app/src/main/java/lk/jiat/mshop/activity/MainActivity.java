@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -28,6 +29,8 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.logging.Logger;
 
 import lk.jiat.mshop.R;
+import lk.jiat.mshop.databinding.ActivityMainBinding;
+import lk.jiat.mshop.databinding.SideNavHeaderBinding;
 import lk.jiat.mshop.fragment.CartFragment;
 import lk.jiat.mshop.fragment.CategoryFragment;
 import lk.jiat.mshop.fragment.HomeFragment;
@@ -39,16 +42,24 @@ import lk.jiat.mshop.fragment.WishlistFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, NavigationBarView.OnItemSelectedListener {
 
+    private ActivityMainBinding binding;
+    
+    private SideNavHeaderBinding sideNavHeaderBinding;
     private DrawerLayout drawerLayout;
     private MaterialToolbar toolbar;
     private NavigationView navigationView;
     private BottomNavigationView bottomNavigationView;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+
+        setContentView(binding.getRoot());
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.drawerLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -56,10 +67,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return insets;
         });
 
-        drawerLayout = findViewById(R.id.drawerLayout);
-        toolbar = findViewById(R.id.toolbar);
-        navigationView = findViewById(R.id.side_navigation_view);
-        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        View headerView = binding.sideNavigationView.getHeaderView(0);
+
+        sideNavHeaderBinding = SideNavHeaderBinding.bind(headerView);
+        
+
+        drawerLayout = binding.drawerLayout;
+        toolbar = binding.toolbar;
+        navigationView = binding.sideNavigationView;
+        bottomNavigationView = binding.bottomNavigationView;
 
         setSupportActionBar(toolbar);
 
@@ -134,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             loadFragment(new CategoryFragment());
             bottomNavigationView.getMenu().findItem(R.id.bottom_nav_category).setChecked(true);
         } else if (itemId == R.id.side_nav_login) {
-            Intent intent = new Intent(MainActivity.this,SignInActivity.class);
+            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
             startActivity(intent);
             finish();
         } else if (itemId == R.id.side_nav_logout) {

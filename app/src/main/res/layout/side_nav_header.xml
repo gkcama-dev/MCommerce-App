@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
+        android:id="@+id/header_profile_pic"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="bottom"
@@ -12,6 +13,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
+        android:id="@+id/header_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lakshan"
@@ -20,6 +22,7 @@
         android:layout_marginStart="125dp"/>
 
     <TextView
+        android:id="@+id/header_user_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="lakshan@gmail.com"
