@@ -30,7 +30,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     private ActivitySignUpBinding binding;
     private FirebaseAuth firebaseAuth;
-
     private FirebaseFirestore firebaseFirestore;
 
     @Override

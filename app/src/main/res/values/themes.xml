@@ -6,13 +6,21 @@
         <item name="colorSecondary">@color/md_theme_secondary</item>
         <item name="colorOnSecondary">@color/white</item>
 
+<!--        <item name="colorAccent">@color/md_theme_color_accent</item>-->
+
         <item name="android:windowBackground">@color/primary_bg</item>
 
         <item name="android:statusBarColor">@color/md_theme_primary</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
     </style>
 
     <style name="Theme.MShop.FullScreen" parent="Theme.MShop">
         <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="circleImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>
