@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:cardBackgroundColor="@color/md_theme_color_accent">
+
+        <ImageView
+            android:id="@+id/listing_item_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:srcCompat="@tools:sample/avatars" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/listing_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="10dp"
+        android:text="Item"
+        android:textAlignment="center"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/listing_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LKR 1500.00"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

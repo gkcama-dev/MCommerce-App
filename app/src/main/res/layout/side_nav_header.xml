@@ -2,21 +2,26 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="180dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/header_profile_pic"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="bottom"
         android:layout_margin="20dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:background="@drawable/circle_shape"
+        android:src="@drawable/person"
+        tools:srcCompat="@tools:sample/avatars"
+        app:shapeAppearanceOverlay="@style/circleImage"/>
 
     <TextView
         android:id="@+id/header_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lakshan"
+        android:text="You're not logged in"
         android:textStyle="bold"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="125dp"/>
@@ -25,7 +30,6 @@
         android:id="@+id/header_user_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="lakshan@gmail.com"
         android:textStyle="bold"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="20dp"
