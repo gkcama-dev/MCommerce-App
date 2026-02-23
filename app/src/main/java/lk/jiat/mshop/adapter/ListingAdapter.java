@@ -23,6 +23,7 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ViewHold
 
     private List<Product> products;
     private OnListingItemClickListener listener;
+
     public ListingAdapter(List<Product> products, OnListingItemClickListener listener) {
         this.products = products;
         this.listener = listener;
@@ -41,18 +42,18 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ViewHold
 
         Product product = products.get(position);
         holder.productTitle.setText(product.getTitle());
-        holder.productPrice.setText(product.getPrice()+"");
+        holder.productPrice.setText("LKR " + product.getPrice() + "");
         Glide.with(holder.itemView.getContext())
                 .load(product.getImages().get(0))
                 .centerCrop()
                 .into(holder.productImage);
 
-        holder.itemView.setOnClickListener(v->{
+        holder.itemView.setOnClickListener(v -> {
 
             Animation animation = AnimationUtils.loadAnimation(v.getContext(), R.anim.click_animation);
             v.startAnimation(animation);
 
-            if(listener != null){
+            if (listener != null) {
                 listener.onListingItemClick(product);
             }
         });
@@ -63,7 +64,7 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ViewHold
         return products.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView productImage;
         TextView productTitle;
@@ -77,7 +78,7 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ViewHold
         }
     }
 
-    public interface OnListingItemClickListener{
+    public interface OnListingItemClickListener {
         void onListingItemClick(Product product);
     }
 }
