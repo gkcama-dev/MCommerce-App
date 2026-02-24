@@ -33,7 +33,7 @@ public class ListingFragment extends Fragment {
 
     private FragmentListingBinding binding;
     private ListingAdapter adapter;
-    private String categoryId; 
+    private String categoryId;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,32 +77,39 @@ public class ListingFragment extends Fragment {
 //
 //        batch.commit();
 
-       db.collection("products")
-               .whereEqualTo("categoryId", categoryId)
-               .orderBy("title", Query.Direction.ASCENDING)
-               .get()
-               .addOnSuccessListener(ds->{
-                   if(!ds.isEmpty()){
-                       List<Product> products = ds.toObjects(Product.class);
-                       adapter = new ListingAdapter(products,product -> {
+        db.collection("products")
+                .whereEqualTo("categoryId", categoryId)
+                .orderBy("title", Query.Direction.ASCENDING)
+                .get()
+                .addOnSuccessListener(ds -> {
+                    if (!ds.isEmpty()) {
+                        List<Product> products = ds.toObjects(Product.class);
 
-                           getParentFragmentManager().beginTransaction()
-                                   .replace(R.id.fragment_container,new ProductDetailsFragment())
-                                   .addToBackStack(null)
-                                   .commit();
+                        adapter = new ListingAdapter(products, product -> {
 
-                       });
-                       binding.recyclerViewListing.setAdapter(adapter);
-                   }
-               }).addOnFailureListener(e -> {
-                   Log.e("FirebaseError", "Error: " + e.getMessage());
-               });
+                            Bundle bundle = new Bundle();
+                            bundle.putString("productId", product.getProductId());
 
-       getActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
-           @Override
-           public void handleOnBackPressed() {
-               requireActivity().getSupportFragmentManager().popBackStack();
-           }
-       });
+                            ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
+                            productDetailsFragment.setArguments(bundle);
+
+                            getParentFragmentManager().beginTransaction()
+                                    .replace(R.id.fragment_container, productDetailsFragment)
+                                    .addToBackStack(null)
+                                    .commit();
+
+                        });
+                        binding.recyclerViewListing.setAdapter(adapter);
+                    }
+                }).addOnFailureListener(e -> {
+                    Log.e("FirebaseError", "Error: " + e.getMessage());
+                });
+
+        getActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                requireActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
     }
 }
