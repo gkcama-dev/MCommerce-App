@@ -1,5 +1,6 @@
 [versions]
 agp = "8.12.3"
+dotsindicator = "5.1.0"
 firebaseBom = "34.9.0"
 glide = "5.0.5"
 junit = "4.13.2"
@@ -13,6 +14,7 @@ constraintlayout = "2.2.1"
 picasso = "2.8"
 
 [libraries]
+dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
